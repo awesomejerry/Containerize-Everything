@@ -7,3 +7,15 @@ services:
       - "80:80"
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
+
+  python:
+    build:
+      context: ./python
+    working_dir: /app
+    volumes:
+      - ./python:/app
+    command: ['python', 'flask_app.py']
+    environment:
+     - VIRTUAL_HOST=flask.test
+    ports:
+      - '5000'
