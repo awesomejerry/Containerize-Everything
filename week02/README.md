@@ -1,5 +1,8 @@
 ## Running
 ```
+// Install node dependencies
+cd node && npm install
+
 // Run services
 docker-compose up
 ```
