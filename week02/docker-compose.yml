@@ -8,6 +8,21 @@ services:
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
 
+  node:
+    build:
+      context: ./node
+      args:
+        - NODE_IMG_VERSION=${NODE_IMG_VERSION}
+    working_dir: /app
+    command: ['npm', 'start']
+    ports:
+      - ${NODE_PORT}
+    environment:
+      - VIRTUAL_HOST=${NODE_HOST}
+      - NODE_PORT=${NODE_PORT}
+    volumes:
+      - ./node:/app
+
   python:
     build:
       context: ./python
