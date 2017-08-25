@@ -14,7 +14,7 @@ services:
       args:
         - NODE_IMG_VERSION=${NODE_IMG_VERSION}
     working_dir: /app
-    command: ['npm', 'start']
+    command: ['node', 'index.js']
     ports:
       - ${NODE_PORT}
     environment:
