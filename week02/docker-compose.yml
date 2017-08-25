@@ -22,3 +22,15 @@ services:
       - NODE_PORT=${NODE_PORT}
     volumes:
       - ./node:/app
+
+  python:
+    build:
+      context: ./python
+    working_dir: /app
+    volumes:
+      - ./python:/app
+    command: ['python', 'flask_app.py']
+    environment:
+     - VIRTUAL_HOST=flask.test
+    ports:
+      - '5000'
