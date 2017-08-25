@@ -31,6 +31,6 @@ services:
       - ./python:/app
     command: ['python', 'flask_app.py']
     environment:
-     - VIRTUAL_HOST=flask.test
+     - VIRTUAL_HOST=${PYTHON_HOST}
     ports:
       - '5000'
