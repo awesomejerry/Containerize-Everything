@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  main:
+    build:
+      context: .
+    ports:
+      - "8065:8065"
+
+  mattermost:
+    image: mattermost:1.0.0
+    ports:
+      - "8065:8065"
